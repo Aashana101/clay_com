@@ -1,101 +1,112 @@
+"use client";
+
 import Image from "next/image";
+import Head from "next/head";
 
 export default function Home() {
+  const handleGoogleSignIn = () => {
+    window.location.href = "https://accounts.google.com/signin";
+  };
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
+      <Head>
+        <title>Clay.com</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      <main className="flex items-center justify-center w-full h-screen">
+        <div className="bg-white shadow-2xl flex w-full h-full max-w-none">
+          <div className="w-full lg:w-1/2 p-5 flex items-center justify-center relative">
+            <div className="absolute top-8 left-20">
+              <Image
+                src="https://app.clay.com/assets/Clay-logo-tilt-2024-DKnp3RSV.png"
+                alt="clay-logo"
+                className="w-20"
+                priority
+                width={50}
+                height={50}
+              />
+            </div>
+            <div className="mt-[-90px]">
+              <h1
+                data-slot="heading"
+                className="text-4xl font-bold tracking-tight"
+              >
+                Welcome back!
+              </h1>
+              <p
+                data-slot="text"
+                className="text-sm font-normal text-content-tertiary text-gray-500"
+              >
+                Use Clay to build your personalized outreach campaigns in
+                minutes
+              </p>
+              <button
+                onClick={handleGoogleSignIn}
+                className="flex items-center justify-center w-full mt-4 px-4 py-2 text-black bg-gray-100 border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >
+                <Image
+                  src="https://cdn2.hubspot.net/hubfs/53/image8-2.jpg" // Google logo
+                  alt="Google logo"
+                  className="mr-2"
+                  width={50}
+                  height={50}
+                />
+                Sign in with Google
+              </button>
+              <div className="flex items-center mt-4">
+                <div className="flex-grow border-b border-gray-300"></div>
+                <span className="mx-2 text-gray-500">OR</span>
+                <div className="flex-grow border-b border-gray-300"></div>
+              </div>
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="mt-4 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button className="bg-blue-500 text-white mt-5 w-full px-4 py-2 rounded-md">
+                Continue
+              </button>
+              <div className="mt-4">
+                <span className="text-sm text-gray-60">
+                  Don&apos;t have an account?{" "}
+                  <span className=" hover:text-blue-500 cursor-pointer">
+                    Sign Up
+                  </span>
+                </span>
+              </div>
+
+            <footer className="relative w-full p-4 mt-8">
+              <div className="flex justify-center space-x-4 ">
+                <a
+                  href="/terms"
+                  className="text-sm text-blue-500 whitespace-nowrap"
+                >
+                  Terms & Condition
+                </a>
+                <span className="text-gray-500">|</span>
+                <a
+                  href="/privacy"
+                  className="text-sm text-blue-500 whitespace-nowrap"
+                >
+                  Privacy Policy
+                </a>
+              </div>
+            </footer>
+          </div>
+          </div>
+          <div className="hidden items-center justify-center bg-yellow-100 lg:flex lg:w-1/2 xl:w-3/5 mr-0">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="https://app.clay.com/assets/signInBanner-B-u_aDQ5.png"
+              priority
+              className="w-full h-auto mr-0 ml-10"
+              width={750}
+              height={900}
+              alt="Photo section"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
